@@ -12,9 +12,13 @@ where = input('Где искать вакансию?')
 # текст
 query_string = input('Строка запроса?')
 
-#параметры запроса по ключевому слову Python
-parameters = {'text': 'NAME:(Python) AND (Москва)'}
+
+parameters = {'text': where and query_string}
 data_collection = requests.get(URL, params=parameters).json()
+
+#параметры запроса по ключевому слову Python
+# parameters = {'text': 'NAME:(Python) AND (Москва)'}
+# data_collection = requests.get(URL, params=parameters).json()
 data_list.append(data_collection)
 for j in data_list:
     y = j['items']
